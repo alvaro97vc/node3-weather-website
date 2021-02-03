@@ -4,8 +4,8 @@
 
 <head>
     <title>Weather</title>
-    <link rel="icon" href="/img/weather.png">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/img/weather.png"> {{!Esto hace referencia al icono pequeño de la pestaña}}
+    <link rel="stylesheet" href="/css/styles.css"> {{!Esto hace referencia al archivo styles que contiene los diferentes estilos de las diferentes etiquetas}}
     {{! <script src="/js/app.js"></script>  --  Esta linea no puede ir aqui, pues de lo contrario cargaria las instrucciones del app.js antes de que el cuerpo se haya desarrollado}} 
 </head>
 
@@ -16,16 +16,16 @@
         <p>Use this site to get your weather!</p>
 
         <form>
-            <input placeholder="Location">
-            <button>Busqueda</button>
+            <input placeholder="Location"> {{!Esto es una ventana de texto a introducir, con un texto en gris de fondo}}
+            <button>Busqueda</button> {{!Esto es un boton con 'Busqueda' escrito}}
         </form>
 
-        <p id="message-1"></p>
+        <p id="message-1"></p> {{!Esto son mensajes cuyo contenido se define en app.js en la carpeta js}}
         <p id="message-2"></p>
     </div>
 
     {{>footer}}
-    <script src="/js/app.js"></script>
+    <script src="/js/app.js"></script> {{!Esto hace referencia a la app.js que ejecuta la recogida de datos del boton y el display de los datos obtenidos por forecast}}
 </body>
 
 </html>
