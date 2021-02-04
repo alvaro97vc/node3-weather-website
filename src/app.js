@@ -12,6 +12,8 @@ const forecast = require('./utils/forecast')
 
 
 const app = express() //express es una funcion necesaria para acceder al path public y definir los distintos metodos de la web
+const port = express.env.PORT || 3000 //Asigna el puerto al proporcionado por Heroku, y si no existe, le asigna el valor 3000
+
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public') //Con esta linea podremos acceder al fichero que da estilo a los HTML (el CSS)
@@ -114,6 +116,6 @@ app.get('*', (req, res) => {
 
 
 //Metodo final necesario para crear el local server
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 })

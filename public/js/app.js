@@ -16,6 +16,8 @@ weatherForm.addEventListener('submit', (event) => {
     messageOne.textContent = ''
     messageTwo.textContent = ''
 
+
+    /* EMPLEARIAMOS ESTE SI UTILIZARAMOS UN LOCALHOST
     fetch('http://localhost:3000/weather?address=' + location).then((response) => { //De aqui fetch busca en la direccion provista un json, que guarda como response
         response.json().then((data) => {  //Del json saca data, que son tres objetos (si todo sale bien): forecast, location y adress.
            if (data.GeoError){
@@ -27,5 +29,17 @@ weatherForm.addEventListener('submit', (event) => {
            messageTwo.textContent = data.location
        })
    })
-
+    */
+   //EMPLEAMOS ESTE SI UTILIZAMOS HEROKU
+    fetch('/weather?address=' + location).then((response) => { //De aqui fetch busca en la direccion provista un json, que guarda como response
+        response.json().then((data) => {  //Del json saca data, que son tres objetos (si todo sale bien): forecast, location y adress.
+           if (data.GeoError){
+               //console.log(data.GeoError)
+               messageTwo.textContent = data.GeoError //si hay algun error, la data recibida solo tendra un objeto que sera GeoError
+           } 
+           //console.log(data.forecast)
+           messageOne.textContent = data.forecast //si todo ha ido bien, se enviara al index el contenido de forecast y location
+           messageTwo.textContent = data.location
+       })
+   })
 })
